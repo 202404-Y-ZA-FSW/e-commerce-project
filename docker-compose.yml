@@ -1,7 +1,7 @@
 version: "3.8"
 services:
-  mongodb:
-    container_name: mongodb
+  e-commerce-mongodb:
+    container_name: e-commerce-mongodb
     restart: unless-stopped
     env_file: ./.env
     logging:
@@ -14,8 +14,8 @@ services:
       - db:/data/db
       - ./dbseed.gz:/dbseed.gz
       - ./dbseed.sh:/docker-entrypoint-initdb.d/mongorestore.sh
-  mongodb-crud-with-mongoose-test:
-    container_name: mongodb-crud-with-mongoose-test
+  mongodb-e-commerce:
+    container_name: mongodb-e-commerce
     restart: unless-stopped
     env_file: ./.env
     logging:
@@ -29,8 +29,8 @@ services:
       - ./dbseed.sh:/docker-entrypoint-initdb.d/mongorestore.sh
   app:
     depends_on:
-      - mongodb
-      - mongodb-crud-with-mongoose-test
+      - e-commerce-mongodb
+      - mongodb-e-commerce
     container_name: node-app
     restart: always
     build: .
@@ -53,7 +53,7 @@ services:
     stdin_open: true
     tty: true
     links:
-      - mongodb
+      - e-commerce-mongodb
 volumes:
   db:
   avatars:
