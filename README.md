@@ -20,15 +20,39 @@ We will work through this project in versions. these versions will be as followi
 
 We may add or remove few versions as we progress through the project during the bootcamp.
 
+## Working with docker
+
+This app is bootstraped with docker and docker-compose. It containerize the server, as well as the database.
+
+### To start the server
+
+run the command `yarn && yarn start`. This will install all the dependencies and build the docker image
+
+### To install packages
+
+when you run `yarn add PACKAGE` the package will be installed in docker as well automatically. However if you run into issues, you need to stop the server first with `yarn stop` then you can run `yarn build` to rebuild the docker image and start again.
+
+### To prune the containers and data
+
+> ⚠️ WARNING: This is a destructuve command that would delete the containers and all the data inside like database data, and uploads
+> you can run `yarn prune` to shutdown the server and delete all the volumes associated with it. This serves as a start fresh command, that will return your server environment to original. It will not affect your code changes though.
+
+## Starter Code
+
+In this project folder, you will find:
+
+1. Express server setup in `/index.js`
+2. The database connection is setup in `db/connection.js`
+
+Now the rest is for you to build on your own 😁
+
 ### Functional requirements
 
 The requirements will update in each version and you will add to the work you did the in previous version so make sure you write clean code, also, this is why you see requirements titled as Version N.
 
 **Attention**: All types of validation and error handling should be taken in-consideration in all requests.
 
-#### Version 1 Requirements
-
-In this version we will make sure everything is setup and working from the database to Express server and their connection. Then we will start working on all the admin features and requirements as following:
+#### Requirements
 
 - First of all, you need to define your `shop-item` schema, it should at least have these fields (the data types and other validation criterias will be left for you to decide on):
   - title
@@ -46,8 +70,6 @@ _Note: admin routes start with `/admin`._
 - The admin should be able to update the details of a shop item, such as description, price, available count, etc.
 - The admin should be able to delete one or more items from the items list.
 - The admin should be able to search for shop items based on different properties.
-
-#### Version 2 Requirements
 
 Having the project running and admin being able to play around with the shop items, it is time to add the customer features.
 
@@ -71,11 +93,7 @@ Model requirements:
 
 **Note**: _You can create a few dummy records on your customers collection to test out your API routes. Once we implement authentication in an upcoming version, we will use the customer data created after signup/signin. Each customer can have id, name, gender, ..._
 
-#### Version 3 Requirements
-
 We've done an amazing job so far, now it's time to work on the website authentication and authorization so admins can sign in and have their own functionalities and the same for the customers.
-
-#### Requirements:
 
 - **Admin Authentication:**
 
