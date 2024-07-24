@@ -100,3 +100,5 @@ The requirements will be split into two main sections: Admin Features and Custom
 Excited to take your project to the next level? Why not build the frontend for your first e-commerce website using React?
 
 - The frontend should include the main functionalities of the app for the customer, such as signup, signin, signout views, all products view, single product view, cart view, and checkout view.
+
+- The frontend should include the main functionalities of the app for the admin, such as signin, signout views, all orders view, all customers view, add new product view, update product view, delete product view.
